@@ -1,3 +1,5 @@
+const express = req
+
 const API = 'http://localhost:3000'
 
 const populateProducts = async () => {
