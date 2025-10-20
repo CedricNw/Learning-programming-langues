@@ -14,5 +14,4 @@ def twoSum(nums: List[int], target: int) -> List[int]:
         i += 1
     return
 
-
 print(twoSum([1,2,3,7,5], 10))
