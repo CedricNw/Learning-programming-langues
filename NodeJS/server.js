@@ -1,16 +1,17 @@
-'use strict'
-const { createServer } = require('http') 
+const express = require('express');
+const path = require('path');
 
-const data = JSON.stringify([
-  {id: 'A1', name: 'Vacuum Cleaner', rrp: '99.99', info: 'The worst vacuum in the world.'},
-  {id: 'A2', name: 'Leaf Blower', rrp: '303.33', info: 'This product will blow your socks off.'},
-  {id: 'B1', name: 'Chocolate Bar', rrp: '22.40', info: 'Delicious overpriced chocolate.'}
-]) 
+const app = express();
+const PORT = 3000;
 
-const server = createServer((req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', '*')
-  res.setHeader('Content-Type', 'application/json')
-  res.end(data)
-})
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
 
-server.listen(3000)
+app.get('/public', (req, res) => {
+  res.send('Du bist auf Public navigiert')
+});
+
+app.listen(PORT, () => {
+  console.log(`Server running at http://localhost:${PORT}`);
+});
